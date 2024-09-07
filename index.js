@@ -31,7 +31,7 @@ if (Platform.OS === 'ios') {
   );
 }
 
-const functions = ['setFromResponse', 'getFromResponse', 'getString'];
+const functions = ['setFromResponse', 'getFromResponse'];
 
 module.exports = {
   getAll: (useWebKit = false) => CookieManager.getAll(useWebKit),
@@ -51,10 +51,6 @@ module.exports = {
       return await CookieManager.removeSessionCookies();
     }
   },
-  getString: async (url, useWebKit = false) => { 
-    const cookies = await CookieManager.get(url, useWebKit);
-    return Object.keys(cookies).map(key => `${key}=${cookies[key]}`).join('; ');
-  }
 };
 
 for (var i = 0; i < functions.length; i++) {

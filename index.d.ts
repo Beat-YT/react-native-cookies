@@ -23,25 +23,17 @@ declare module '@react-native-cookies/cookies' {
 
     clearAll(useWebKit?: boolean): Promise<boolean>;
     
-    /**
-     * @platform android
-     */
+    // Android only
     flush(): Promise<void>;
     removeSessionCookies(): Promise<boolean>;
 
-    /**
-     * @platform ios
-     */
+    // iOS only
     getAll(useWebKit?: boolean): Promise<Cookies>;
-    
     clearByName(
       url: string,
       name: string,
       useWebKit?: boolean,
     ): Promise<boolean>;
-
-
-    getString(url: string, useWebKit?: boolean): Promise<string>;
   }
 
   const CookieManager: CookieManagerStatic;
