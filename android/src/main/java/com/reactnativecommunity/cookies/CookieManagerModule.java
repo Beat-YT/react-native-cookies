@@ -143,6 +143,21 @@ public class CookieManagerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void getString(String url, Boolean useWebKit, Promise promise) {
+        if (isEmpty(url)) {
+            promise.reject(new Exception(INVALID_URL_MISSING_HTTP));
+            return;
+        }
+        try {
+            String cookiesString = getCookieManager().getCookie(url);
+            
+            promise.resolve(cookiesString);
+        } catch (Exception e) {
+            promise.reject(e);
+        }
+    }
+
+    @ReactMethod
     public void clearByName(String url, String name, Boolean useWebKit, final Promise promise) {
         promise.reject(new Exception(CLEAR_BY_NAME_NOT_SUPPORTED));
     }
