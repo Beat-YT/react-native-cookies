@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage            = package["homepage"]
   s.license             = package["license"]
   s.author              = { package["author"]["name"] => package["author"]["email"] }
-  s.source              = { :git => "git@github.com:react-native-cookies/cookies.git", :tag => "v#{s.version}" }
+  s.source              = { :git => "git@github.com:Beat-YT/react-native-cookies.git", :tag => "v#{s.version}" }
   s.requires_arc        = true
   s.platform            = :ios, "7.0"
   s.preserve_paths      = "*.framework"
